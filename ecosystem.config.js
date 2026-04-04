@@ -1,4 +1,7 @@
-require('dotenv').config({ path: '.env.deploy' });
+const path = require('path');
+try {
+  require(path.join(__dirname, 'node_modules', 'dotenv')).config({ path: path.join(__dirname, '.env.deploy') });
+} catch (e) {}
 
 module.exports = {
   apps: [
