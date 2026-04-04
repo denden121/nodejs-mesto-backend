@@ -21,7 +21,7 @@ module.exports = {
       ref: 'origin/main',
       repo: process.env.DEPLOY_REPO,
       path: process.env.DEPLOY_PATH,
-      'pre-deploy': `scp .env ${process.env.DEPLOY_USER}@${process.env.DEPLOY_HOST}:${process.env.DEPLOY_PATH}/current/.env`,
+      'pre-deploy-local': `scp .env ${process.env.DEPLOY_USER}@${process.env.DEPLOY_HOST}:${process.env.DEPLOY_PATH}/current/.env`,
       'post-deploy': 'npm install && npm run build && pm2 reload ecosystem.config.js --env production',
     },
   },
