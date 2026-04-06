@@ -53,11 +53,7 @@ export class CardController {
 
       const savedCard = await newCard.save();
 
-      res.status(HTTP_STATUS_CREATED).json({
-        success: true,
-        message: 'User created successfully',
-        data: savedCard,
-      });
+      res.status(HTTP_STATUS_CREATED).json(savedCard);
     } catch (error: unknown) {
       next(error);
     }
@@ -78,9 +74,7 @@ export class CardController {
         return next(new NotFoundError('Передан несуществующий _id карточки'));
       }
 
-      res.status(HTTP_STATUS_OK).json({
-        message: 'Лайк успешно добавлен',
-      });
+      res.status(HTTP_STATUS_OK).json(updatedCard);
     } catch (error: unknown) {
       next(error);
     }
@@ -101,9 +95,7 @@ export class CardController {
         return next(new NotFoundError('Передан несуществующий _id карточки'));
       }
 
-      res.status(HTTP_STATUS_OK).json({
-        message: 'Лайк успешно удален',
-      });
+      res.status(HTTP_STATUS_OK).json(updatedCard);
     } catch (error: unknown) {
       next(error);
     }
