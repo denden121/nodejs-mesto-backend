@@ -67,9 +67,7 @@ export class UserController {
         return next(new NotFoundError('Пользователь по указанному _id не найден'));
       }
 
-      res.status(HTTP_STATUS_OK).json({
-        message: 'Аватар успешно обновлен',
-      });
+      res.status(HTTP_STATUS_OK).json(updatedUser);
     } catch (error: unknown) {
       next(error);
     }
@@ -106,9 +104,7 @@ export class UserController {
         return next(new NotFoundError('Пользователь по указанному _id не найден'));
       }
 
-      res.status(HTTP_STATUS_OK).json({
-        user,
-      });
+      res.status(HTTP_STATUS_OK).json(user);
     } catch (error: unknown) {
       next(error);
     }
