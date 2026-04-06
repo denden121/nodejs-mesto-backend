@@ -2,11 +2,9 @@
 
 Backend API для приложения Mesto.
 
-## Деплой
-
-IP адрес: x.x.x.x
-Frontend: https://...
-Backend: https://api....
+IP адрес: 178.154.228.62
+Frontend: https://mesto.nomorepartiessite.ru
+Backend: https://api.mesto.nomorepartiessite.ru
 
 ## Локальный запуск
 
@@ -29,8 +27,8 @@ PORT=3000
 Для деплоя создайте `.env.deploy`:
 
 ```
-DEPLOY_USER=username
-DEPLOY_HOST=x.x.x.x
+DEPLOY_USER=danila
+DEPLOY_HOST=178.154.228.62
 DEPLOY_REPO=git@github.com:denden121/nodejs-mesto-backend.git
-DEPLOY_PATH=/home/username/mesto-backend
+DEPLOY_PATH=/home/danila/mesto-backend
 ```
