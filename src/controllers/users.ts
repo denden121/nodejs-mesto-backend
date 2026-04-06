@@ -48,8 +48,9 @@ export class UserController {
       const newUser = new User({ ...userData, password: hashedPassword });
 
       const savedUser = await newUser.save();
+      const { password: _, ...userWithoutPassword } = savedUser.toObject();
 
-      res.status(HTTP_STATUS_CREATED).json(savedUser);
+      res.status(HTTP_STATUS_CREATED).json(userWithoutPassword);
     } catch (error: unknown) {
       next(error);
     }
