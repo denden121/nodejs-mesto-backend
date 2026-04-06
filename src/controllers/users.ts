@@ -131,16 +131,7 @@ export class UserController {
 
       const token = JWTService.generateToken({ userId: user._id });
 
-      res.cookie('token', token, {
-        httpOnly: true,
-        sameSite: 'strict',
-        maxAge: 60 * 60 * 1000,
-        path: '/',
-      });
-
-      res.status(HTTP_STATUS_OK).json({
-        message: 'Login successful',
-      });
+      res.status(HTTP_STATUS_OK).json({ token });
     } catch (error: unknown) {
       next(error);
     }

@@ -4,7 +4,8 @@ import { UnauthorizedError } from 'errors';
 
 export const authMiddleware = (req: Request, _res: Response, next: NextFunction) => {
   try {
-    const token = req.cookies?.token;
+    const { authorization } = req.headers;
+    const token = authorization?.startsWith('Bearer ') ? authorization.slice(7) : req.cookies?.token;
 
     if (!token) {
       return next(new UnauthorizedError('Токен не предоставлен'));
