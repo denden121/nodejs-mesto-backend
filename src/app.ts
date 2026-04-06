@@ -6,6 +6,7 @@ import express, {
 import mongoose from 'mongoose';
 import { errors } from 'celebrate';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import { errorLogger, requestLogger } from 'middlewares/logger';
 import { errorHandler } from 'middlewares/errorHandler';
@@ -16,6 +17,15 @@ const app: Application = express();
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mestodb';
 
+app.use(cors({
+  origin: [
+    'https://mesto.nomorepartiessite.ru',
+    'http://mesto.nomorepartiessite.ru',
+    'http://localhost:3000',
+    'http://localhost:3001',
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
